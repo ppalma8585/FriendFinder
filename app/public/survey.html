@@ -242,16 +242,16 @@ form .buttons .submit:hover {background-color: #14892c;}
                firstQuestion, secondQuestion, thirdQuestion, fourthQuestion
            ]
          }
-         
-         $("#FriendName").text("Placeholder Name");
-				$("#FriendPhoto").attr("src", "photo");
-        $("#FriendModal").modal("toggle");
-        
-         $.post("/api/friends", newFriend, function(data) {
-			    $("#FriendName").text(data.name);
+
+      var currentURL = window.location.origin;
+          $.post(currentURL + "/api/friends", newFriend, function(data){
+          // return info from best match
+           	    $("#FriendName").text(data.name);
 				$("#FriendPhoto").attr("src", data.photo);
-				$("#FriendModal").modal("toggle");
-			});
+          
+          	$("#FriendModal").modal("toggle");
+          }); 
+        
 	
 	});
     </script>

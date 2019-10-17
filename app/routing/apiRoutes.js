@@ -1,44 +1,53 @@
 
-var friends = require("../data/friends");
+var friends = require('../data/friends.js');
 
-module.exports = function(app) {
-  // Return all friends found in friends.js as JSON
-  app.get("/api/friends", function(req, res) {
+function apiRoutes(app) {
+
+  app.get('/api/friends', function (req, res) {
     res.json(friends);
   });
 
-  app.post("/api/friends", function(req, res) {
+  app.post('/api/friends', function (req, res) {
 
-    var user = req.body;
-    var total = 0
-    var matchTotal = 0
-    var possibleFriends = []
+    var possibleFriendsArray = [];
+    var user = req.body
+      
+    var eachComparison = 0;
+    for(var i=0; i < req.body.scores.length; i++){
+      user.scores[i] = parseInt(req.body.scores[i])
+    }
+   
 
-  var score = (user.scores)
-  for (i=0; i < score.length; i++) {
-    score[i] = parseInt(score[i])
-    total = total + score[i]
-  }
-  console.log(score)
-  console.log(total) 
+    for(var i=0; i < friends.length; i++){
 
-for (i=0; i<friends.length; i++) {
-  var name = friends[i].name
- var scores = friends[i].scores
-  for (i=0; scores.length; i++) {
-   matchTotal = matchTotal + parseInt(friends[i].scores)
-  }
-  
-possibleFriends.push({
-  "matchTotal" : matchTotal,
-  "name": name
-})
-console.log(possibleFriends)
-}
-    console.log(friends)
+    
+      for(var j=0; j < user.scores.length; j++){
+        eachComparison += Math.abs( user.scores[j] - friends[i].scores[j] );
+      }
+
+      // Do comparison between each friend
+      possibleFriendsArray.push(eachComparison);
+    }
+
+
+    var bestFriendIndex = 0; 
+    for(var i=1; i < possibleFriendsArray.length; i++){
+      
+      // Lower number equals better match
+      if(possibleFriendsArray[i] <= possibleFriendsArray[bestFriendIndex]){
+        bestFriendIndex = i;
+      }
+    }
+
+    var bestFriendMatch = friends[bestFriendIndex];
+
+  // send data
+    res.json(bestFriendMatch);
+    // Push the new friend to array of friends
     friends.push(user);
 
-    // send back to browser the best friend match
-    // res.json(friends[bestFriendIndex]);
   });
-};
+
+}
+
+module.exports = apiRoutes;
