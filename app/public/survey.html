@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        html,body {padding:0;margin:0;}
+.wrap {
+  font:12px Arial, san-serif;
+}
+h1.likert-header {
+  padding-left:4.25%;
+  margin:20px 0 0;
+}
+form .statement {
+  display:block;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 30px 0 0 4.25%;
+  margin-bottom:10px;
+}
+form .likert {
+  list-style:none;
+  width:100%;
+  margin:0;
+  padding:0 0 35px;
+  display:block;
+  border-bottom:2px solid #efefef;
+}
+form .likert:last-of-type {border-bottom:0;}
+form .likert:before {
+  content: '';
+  position:relative;
+  top:11px;
+  left:9.5%;
+  display:block;
+  background-color:#efefef;
+  height:4px;
+  width:78%;
+}
+form .likert li {
+  display:inline-block;
+  width:19%;
+  text-align:center;
+  vertical-align: top;
+}
+form .likert li input[type=radio] {
+  display:block;
+  position:relative;
+  top:0;
+  left:50%;
+  margin-left:-6px;
+  
+}
+form .likert li label {width:100%;}
+form .buttons {
+  margin:30px 0;
+  padding:0 4.25%;
+  text-align:right
+} 
+form .buttons button {
+  padding: 5px 10px;
+  background-color: #67ab49;
+  border: 0;
+  border-radius: 3px;
+}
+form .buttons .clear {background-color: #e9e9e9;}
+form .buttons .submit {background-color: #67ab49;} 
+form .buttons .clear:hover {background-color: #ccc;}
+form .buttons .submit:hover {background-color: #14892c;} 
+        </style>
+        <div class="container-fluid">
+                <div class="jumbotron">
+                  <h1>Need a friend?</h1>
+                  <p>Answer these questions, and you will meet your friend.</p>
+                </div>
+              </div>
+              <div class="container">
+                    First name: <input type="text" id="name" name="fname">
+                    Photo Url: <input type="text" id="url" name="url">
+              </div>
+<div class="container">
+    <div class="wrap">
+        <!-- <h1 class="likert-header">This is a Likert Scale survey</h1> -->
+        <form action="">
+          <label class="statement">You like chocolate ice cream.</label>
+          <ul class='likert'>
+            <li>
+              <input type="radio" name="firstQuestion" value=5>
+              <label>Strongly agree</label>
+            </li>
+            <li>
+              <input type="radio"  name="firstQuestion" value=4>
+              <label>Agree</label>
+            </li>
+            <li>
+              <input type="radio"  name="firstQuestion" value=3>
+              <label>Neutral</label>
+            </li>
+            <li>
+              <input type="radio"  name="firstQuestion" value=2>
+              <label>Disagree</label>
+            </li>
+            <li>
+              <input type="radio"  name="firstQuestion" value=1>
+              <label>Strongly disagree</label>
+            </li>
+          </ul>
+          <label class="statement">You watch more netflix than youtube.</label>
+          <ul class='likert'>
+            <li>
+              <input type="radio"  name="secondQuestion" value=5>
+              <label>Strongly agree</label>
+            </li>
+            <li>
+              <input type="radio" name="secondQuestion" value=4>
+              <label>Agree</label>
+            </li>
+            <li>
+              <input type="radio" name="secondQuestion" value=3>
+              <label>Neutral</label>
+            </li>
+            <li>
+              <input type="radio" name="secondQuestion" value=2>
+              <label>Disagree</label>
+            </li>
+            <li>
+              <input type="radio" name="secondQuestion" value=1>
+              <label>Strongly disagree</label>
+            </li>
+          </ul>
+          <label class="statement">You like exercising.</label>
+          <ul class='likert'>
+            <li>
+              <input type="radio" name="thirdQuestion" value=5>
+              <label>Strongly agree</label>
+            </li>
+            <li>
+              <input type="radio" name="thirdQuestion" value=4>
+              <label>Agree</label>
+            </li>
+            <li>
+              <input type="radio" name="thirdQuestion" value=3>
+              <label>Neutral</label>
+            </li>
+            <li>
+              <input type="radio"  name="thirdQuestion" value=2>
+              <label>Disagree</label>
+            </li>
+            <li>
+              <input type="radio" name="thirdQuestion" value=1>
+              <label>Strongly disagree</label>
+            </li>
+          </ul>
+          <label class="statement">When you go to a restaurant, you order dessert.</label>
+          <ul class='likert'>
+            <li>
+              <input type="radio" name="fourthQuestion" value=5>
+              <label>Strongly agree</label>
+            </li>
+            <li>
+              <input type="radio" name="fourthQuestion" value=4>
+              <label>Agree</label>
+            </li>
+            <li>
+              <input type="radio"  name="fourthQuestion" value=3>
+              <label>Neutral</label>
+            </li>
+            <li>
+              <input type="radio" name="fourthQuestion" value=2>
+              <label>Disagree</label>
+            </li>
+            <li>
+              <input type="radio" name="fourthQuestion" value=1>
+              <label>Strongly disagree</label>
+            </li>
+          </ul>
+          <div class="buttons">
+            <button class="clear">Clear</button>
+            <button class="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Modal after survey completion -->
+		<div id="FriendModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title">Your New Best Friend</h1>
+					</div>
+					<div class="modal-body">
+						<h2 id="FriendName"></h2>
+						<img id="FriendPhoto" src="#">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    <script>
+        var firstQuestion;
+        var secondQuestion;
+        var thirdQuestion;
+        var fourthQuestion;
+        var name;
+        var photo;
+        var newFriend;
+       $(".submit").on("click", function(event) {
+           event.preventDefault()
+          
+       
+        name = $("#name").val()
+       photo = $("#url").val()
+     
+          firstQuestion = document.querySelector('input[name=firstQuestion]:checked').value
+         
+          secondQuestion = document.querySelector('input[name=secondQuestion]:checked').value
+     
+          thirdQuestion = document.querySelector('input[name=thirdQuestion]:checked').value
+         
+         fourthQuestion = document.querySelector('input[name=fourthQuestion]:checked').value
+
+          newFriend = {
+           name: name,
+           photo : photo,
+           scores : [
+               firstQuestion, secondQuestion, thirdQuestion, fourthQuestion
+           ]
+         }
+         
+         $("#FriendName").text("Placeholder Name");
+				$("#FriendPhoto").attr("src", "photo");
+        $("#FriendModal").modal("toggle");
+        
+         $.post("/api/friends", newFriend, function(data) {
+			    $("#FriendName").text(data.name);
+				$("#FriendPhoto").attr("src", data.photo);
+				$("#FriendModal").modal("toggle");
+			});
+	
+	});
+    </script>
+</body>
+
+</html>
